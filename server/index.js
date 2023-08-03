@@ -22,7 +22,7 @@ const app = express();
 // response containing the JSON data.
 
 app.get('/', (req, res) => {
-    res.send({hi: 'there'});
+    res.send({hello: 'there'});
 });
 
 const PORT = process.env.PORT || 5000; 
