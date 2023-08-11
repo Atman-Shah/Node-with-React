@@ -6,6 +6,11 @@ const keys = require("../config/keys");
 // One argument means we are trying to fetch something out of mongoose.
 const User = mongoose.model("users");
 
+passport.serializeUser((user, done) => {
+  // user.id is the id in the mongo database, not the googleId.
+  done(null, user.id); 
+});
+
 passport.use(
   new GoogleStrategy(
     {
@@ -23,7 +28,7 @@ passport.use(
           new User({ googleId: profile.id })
             .save()
             .then((user) => done(null, user));  
-        }
+        }  
       });
     }
   )
