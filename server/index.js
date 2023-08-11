@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 const keys = require("./config/keys");
 require("./models/User");
 require("./services/passport");
@@ -8,6 +10,15 @@ require("./services/passport");
 mongoose.connect(keys.mongoURI);
 
 const app = express();
+
+app.use(
+    cookieSession({
+        // So this statement right here says, I want this cookie to last for 
+        // 30 days before it will automatically expire.
+        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days in milliseconds
+        keys: [keys.cookieKey],
+    })
+);
 
 require("./routes/authRoutes")(app);
 
