@@ -1,9 +1,10 @@
 import React from "react";
+import Router from "../Router";
 
 const App = () => {
     return (
-        <div>
-            Hi there!
+        <div className="App">
+            <Router />
         </div>
     );
 };
