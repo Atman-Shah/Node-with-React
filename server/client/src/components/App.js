@@ -1,7 +1,6 @@
 import React from "react";
 import Router from "../Router";
-
-const Header = () => {return <h2>Header</h2>};
+import Header from "./Header";
 
 const App = () => {
     return (
