@@ -1,3 +1,4 @@
+import "materialize-css/dist/css/materialize.min.css";
 import React from "react";
 // 1) Import ReactDOM library
 import ReactDOM from "react-dom/client";
