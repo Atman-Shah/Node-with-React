@@ -6,12 +6,18 @@ import { authAtom } from "../states";
 import { useAtom } from "jotai";
 
 const App = () => {
-    useEffect(() => {
-        (async () => {
-            const user = await fetchUser();
-            console.log("User: ", user);
-        })();
-    }, []);
+  const [auth, setAuth] = useAtom(authAtom);
+
+  useEffect(() => {
+    (async () => {
+      const user = await fetchUser();
+      setAuth(user || false);
+    })();
+  }, []);
+
+  useEffect(() => {
+    console.log("auth", auth);
+  }, [auth]);
 
   return (
     <div className="container">
