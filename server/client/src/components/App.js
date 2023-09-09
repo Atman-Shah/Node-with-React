@@ -15,9 +15,9 @@ const App = () => {
     })();
   }, []);
 
-  useEffect(() => {
-    console.log("auth", auth);
-  }, [auth]);
+  // useEffect(() => {
+  //   console.log(auth);
+  // }, [auth]);
 
   return (
     <div className="container">

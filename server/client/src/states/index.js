@@ -1,4 +1,3 @@
 import { atom } from "jotai";
 
-export const authAtom = atom(false);
-export const authProgressAtom = atom(false);
+export const authAtom = atom(null);
