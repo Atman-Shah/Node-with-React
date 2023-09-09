@@ -23,10 +23,14 @@ export default Header;
 function renderContent(auth) {
   switch (auth) {
     case null:
-      return "Still deciding";
+      return;
     case false:
-      return "I am logged out";
+      return (
+        <li>
+          <a href="/auth/google">Login With Google</a>
+        </li>
+      );
     default:
-      return "I am logged in";
+      return <li><a>Logout</a></li>;
   }
 }
