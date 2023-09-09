@@ -18,6 +18,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Landing />,
     },
+    // {
+    //     path: "/auth/google/callback",
+    //     element:
+    // },
   ]);
 
   return <RouterProvider router={router} />;
