@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Landing from "./components/Landing";
 
 const Dashboard = () => {return <h2>Dashboard</h2>};
 const SurveyNew = () => {return <h2>SurveyNew</h2>};
-const Landing = () => {return <h2>Landing</h2>};
 
 function Router() {
 const router = createBrowserRouter([
