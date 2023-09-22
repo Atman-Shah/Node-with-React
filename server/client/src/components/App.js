@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import Router from "../Router";
-import Header from "./Header";
 import { fetchUser } from "../helper";
 import { authAtom } from "../states";
 import { useAtom } from "jotai";
 
 const App = () => {
-  const [auth, setAuth] = useAtom(authAtom);
+  const [, setAuth] = useAtom(authAtom);
 
   useEffect(() => {
     (async () => {
       const user = await fetchUser();
       setAuth(user || false);
     })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // useEffect(() => {
@@ -22,7 +22,6 @@ const App = () => {
   return (
     <div className="container">
       <div className="App">
-        <Header />
         <Router />
       </div>
     </div>

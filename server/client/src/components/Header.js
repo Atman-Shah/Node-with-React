@@ -1,17 +1,19 @@
 import { authAtom } from "../states";
 import { useAtom } from "jotai";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [auth] = useAtom(authAtom);
 
-  console.log("Auth", auth);
-
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="/" className="left brand-logo">
+        <Link 
+          to={auth ? "/surveys" : "/"} 
+          className="left brand-logo"
+        >
           Emaily
-        </a>
+        </Link>
         <ul className="right">{renderContent(auth)}</ul>
       </div>
     </nav>
