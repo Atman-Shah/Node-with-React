@@ -6,6 +6,10 @@ import ReactDOM from "react-dom/client";
 // 2) Import App component as usual
 import App from "./components/App";
 
+//temporary
+import axios from "axios";
+window.axios = axios;
+
 // 3) Get a reference to the div with ID root
 const el = document.getElementById("root");
 
