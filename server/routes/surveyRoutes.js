@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
-const Mailer = require("../services/sendEmail");
 const surveyTemplate = require("../services/emailTemplates/surveyTemplate");
 const sendEmail = require("../services/sendEmail");
 
@@ -22,8 +21,10 @@ module.exports = (app) => {
         dateSent: Date.now(),
       });
 
-      const data = await sendEmail(survey, surveyTemplate(survey));
-      return res.json(data);
+      await sendEmail(survey, surveyTemplate(survey));
+      await survey.save();
+      const user = await req.user.save();
+      res.send(user);
     } catch (err) {
       res.status(400).json({ error: err });
     }
